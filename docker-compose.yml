@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  bayes:
+    networks:
+      - default
+    container_name: event-driven-python-bayes
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: "linux/amd64"
+    env_file:
+      - .env
+    volumes:
+      - .:/event-driven-python
+    depends_on:
+      - redis
+# We don't explicitly define the 'entrypoint' because this breaks PyCharm test integration.
+# In prod we should define the entrypoint to limit interaction possibilities of the container.
+    command: ["./entrypoint.sh", "bayes"]
+
+  jupyter:
+    container_name: event-driven-python-jupyter
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: "linux/amd64"
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/event-driven-python
+    command: ["./entrypoint.sh", "jupyter"]
+
+  redis:
+    networks:
+      - default
+    container_name: event-driven-python-redis
+    image: redis:6-alpine
+    ports:
+      - "6381:6379"
