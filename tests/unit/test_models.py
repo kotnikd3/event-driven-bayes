@@ -11,4 +11,15 @@ class TestBinomialModel(TestCase):
         self.model = BinomialModel(prior=prior, w=0, n=0)
 
     def test_update(self):
-        assert 1 == 1
+        self.model.update()
+
+        self.assertEquals(10, len(self.model.p_grid))
+        self.assertEquals(10, len(self.model.posterior))
+
+    def test_predict(self):
+        self.model.update()  # First we need to .update()
+        size = 30
+        result = self.model.predict(size=size)
+
+        self.assertTrue(isinstance(result, np.ndarray))
+        self.assertEquals(size, len(result))

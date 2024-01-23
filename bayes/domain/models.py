@@ -30,8 +30,8 @@ class BinomialModel(StatisticalModel):
         self.p_grid = np.linspace(0, 1, len(self.prior))
 
         likelihood_pmf = stats.binom.pmf(
-            self.parameters["w"],
-            self.parameters["n"],
+            self.parameters['w'],
+            self.parameters['n'],
             self.p_grid,
         )
 
@@ -46,7 +46,7 @@ class BinomialModel(StatisticalModel):
             replace=True,
         )
 
-        return stats.binom.rvs(n=self.parameters["n"], p=posterior_samples)
+        return stats.binom.rvs(n=self.parameters['n'], p=posterior_samples)
 
     def __str__(self):
-        return f'w: {self.parameters["w"]}, n: {self.parameters["n"]}'
+        return f"w: {self.parameters['w']}, n: {self.parameters['n']}"
