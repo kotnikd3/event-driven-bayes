@@ -1,5 +1,3 @@
-from datetime import datetime
-
 import matplotlib.pyplot as plt
 
 from bayes.application_services.services import AbstractGraph
@@ -35,11 +33,9 @@ class MatplotlibGraph(AbstractGraph):
         self.plt.legend()
 
     def save(self, output_folder: str) -> None:
-        now = datetime.now()
-        date_str = now.strftime("%Y_%m_%d")
-        time_str = now.strftime("%H_%M_%S")
         n = self.model.parameters['n']
+        w = self.model.parameters['w']
 
-        filename = f'{output_folder}/{n}_{date_str}_{time_str}.png'
+        filename = f'{output_folder}/n_{n}_w_{w}.png'
 
         self.plt.savefig(filename)
