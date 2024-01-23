@@ -1,9 +1,10 @@
 import json
+from abc import ABC, abstractmethod
 
 import numpy as np
 
 from bayes.application_services.repositories import MemoryRepository
-from bayes.domain.models import BinomialModel
+from bayes.domain.models import BinomialModel, StatisticalModel
 
 
 class IncrementalLearner:
@@ -51,3 +52,17 @@ class IncrementalLearner:
         }
 
         self.repository.save_data(data)
+
+
+class AbstractGraph(ABC):
+    @abstractmethod
+    def __init__(self, model: StatisticalModel):
+        self.model = model
+
+    @abstractmethod
+    def draw(self) -> None:
+        raise NotImplementedError
+
+    @abstractmethod
+    def save(self, name) -> None:
+        raise NotImplementedError

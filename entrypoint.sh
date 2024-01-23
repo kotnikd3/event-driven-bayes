@@ -9,6 +9,7 @@ if [ -z "$PORT" ]; then
 fi
 
 if [ "$1" = "local" ]; then
+    mkdir -p graphs
     python bayes/main.py
 elif [ "$1" = "jupyter" ]; then
     mkdir -p notebooks

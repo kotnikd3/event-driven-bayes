@@ -38,7 +38,7 @@ class BinomialModel(StatisticalModel):
         unstd_posterior = likelihood_pmf * self.prior
         self.posterior = unstd_posterior / unstd_posterior.sum()
 
-    def predict(self, size: int = 10000) -> np.ndarray:
+    def predict(self, size: int = 1000) -> np.ndarray:
         posterior_samples = np.random.choice(
             self.p_grid,
             p=self.posterior,
