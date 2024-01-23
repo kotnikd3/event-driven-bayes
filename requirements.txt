@@ -1,4 +1,4 @@
-# Bayes
+# Base
 pymc==5.10.3
 ipython==8.20.0
 ipykernel==6.28.0
@@ -6,3 +6,13 @@ jupyterlab==4.0.10
 matplotlib==3.8.2
 redis==5.0.1
 python-decouple==3.8
+# Dev
+black==23.12.1
+coverage==7.4.0
+factory-boy==3.3.0
+flake8==6.1.0
+isort==5.13.2
+pytest==7.4.4
+pytest-cov==4.1.0
+pytest-xdist==3.5.0
+freezegun==1.4.0

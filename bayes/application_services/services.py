@@ -1,7 +1,9 @@
+import json
+
+import numpy as np
+
 from bayes.application_services.repositories import MemoryRepository
 from bayes.domain.models import BinomialModel
-import numpy as np
-import json
 
 
 class IncrementalLearner:
@@ -15,7 +17,7 @@ class IncrementalLearner:
     def update(self, trial: str) -> None:
         prior, w, n = self._get_previous_knowledge()
 
-        if trial == 'W':
+        if trial == "W":
             w += 1
         n += 1
 
@@ -29,24 +31,23 @@ class IncrementalLearner:
     def _get_previous_knowledge(self) -> tuple:
         # Get data from Redis
         if data := self.repository.get_data():
-            deserialized_posterior = np.array(json.loads(data[b'posterior']))
-            return deserialized_posterior, int(data[b'w']), int(data[b'n'])
+            deserialized_posterior = np.array(json.loads(data[b"posterior"]))
+            return deserialized_posterior, int(data[b"w"]), int(data[b"n"])
 
         return (
             self.model.prior,
-            self.model.parameters['w'],
-            self.model.parameters['n'],
+            self.model.parameters["w"],
+            self.model.parameters["n"],
         )
-
 
     def _save_current_knowledge(self) -> None:
         # Save data to Redis
         serialized_posterior = json.dumps(self.model.posterior.tolist())
 
         data = {
-            'posterior': serialized_posterior,
-            'w': self.model.parameters['w'],
-            'n': self.model.parameters['n'],
+            "posterior": serialized_posterior,
+            "w": self.model.parameters["w"],
+            "n": self.model.parameters["n"],
         }
 
         self.repository.save_data(data)
