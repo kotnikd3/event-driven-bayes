@@ -21,8 +21,6 @@ learner.update('w')
 learner.update('l')
 learner.update('w')
 
-print(learner.model.predict())
-
 graph = MatplotlibGraph(model=learner.model)
 graph.draw()
 graph.save('graphs')

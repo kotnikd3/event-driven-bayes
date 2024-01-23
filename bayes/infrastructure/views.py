@@ -38,7 +38,8 @@ class MatplotlibGraph(AbstractGraph):
         now = datetime.now()
         date_str = now.strftime("%Y_%m_%d")
         time_str = now.strftime("%H_%M_%S")
+        n = self.model.parameters['n']
 
-        filename = f'{output_folder}/{date_str}_{time_str}.png'
+        filename = f'{output_folder}/{n}_{date_str}_{time_str}.png'
 
         self.plt.savefig(filename)
