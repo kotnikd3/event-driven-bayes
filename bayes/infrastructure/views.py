@@ -10,6 +10,8 @@ class MatplotlibGraph(AbstractGraph):
         self.plt = plt
 
     def draw(self) -> None:
+        self.plt.clf()  # Clear
+
         self.plt.plot(
             self.model.p_grid,
             self.model.posterior,
@@ -39,3 +41,5 @@ class MatplotlibGraph(AbstractGraph):
         filename = f'{output_folder}/n_{n}_w_{w}.png'
 
         self.plt.savefig(filename)
+
+        self.plt.close()

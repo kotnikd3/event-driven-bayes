@@ -9,7 +9,10 @@ engine = redis.from_url(REDIS_CONN_STRING)
 repository = RedisRepository(engine=engine)
 repository.flush()
 
-learner = IncrementalLearner(repository=repository)
+learner = IncrementalLearner(
+    repository=repository,
+    drawer=MatplotlibGraph,
+)
 
 learner.update('w')
 learner.update('l')
@@ -20,7 +23,3 @@ learner.update('l')
 learner.update('w')
 learner.update('l')
 learner.update('w')
-
-graph = MatplotlibGraph(model=learner.model)
-graph.draw()
-graph.save('graphs')
