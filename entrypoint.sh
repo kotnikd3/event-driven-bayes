@@ -8,7 +8,7 @@ if [ -z "$PORT" ]; then
     export PORT=8888
 fi
 
-if [ "$1" = "bayes" ]; then
+if [ "$1" = "local" ]; then
     python bayes/main.py
 elif [ "$1" = "jupyter" ]; then
     mkdir -p notebooks
