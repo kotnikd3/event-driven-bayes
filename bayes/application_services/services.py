@@ -17,7 +17,7 @@ class IncrementalLearner:
     def update(self, trial: str) -> None:
         prior, w, n = self._get_previous_knowledge()
 
-        if trial == 'W':
+        if trial == 'w':
             w += 1
         n += 1
 

@@ -13,8 +13,8 @@ class TestBinomialModel(TestCase):
     def test_update(self):
         self.model.update()
 
-        self.assertEquals(10, len(self.model.p_grid))
-        self.assertEquals(10, len(self.model.posterior))
+        self.assertEqual(10, len(self.model.p_grid))
+        self.assertEqual(10, len(self.model.posterior))
 
     def test_predict(self):
         self.model.update()  # First we need to .update()
@@ -22,4 +22,4 @@ class TestBinomialModel(TestCase):
         result = self.model.predict(size=size)
 
         self.assertTrue(isinstance(result, np.ndarray))
-        self.assertEquals(size, len(result))
+        self.assertEqual(size, len(result))

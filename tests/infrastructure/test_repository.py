@@ -1,12 +1,17 @@
+from unittest import TestCase
+
 import pytest
 
 from bayes.infrastructure.repositories import RedisRepository
 
 
-@pytest.mark.usefixtures('engine')
-class TestRedisRepository:
-    def test_save_and_get_data(self, engine):
-        repository = RedisRepository(engine)
-        repository.save_data({'key': 11})
+class TestRedisRepository(TestCase):
+    @pytest.fixture(autouse=True)
+    def prepare_fixture(self, engine):
+        self.engine = engine
 
-        assert {'key': 11}, repository.get_data()
+    def test_save_and_get_data(self):
+        repository = RedisRepository(self.engine)
+        repository.save_data({'key': b'11'})
+
+        self.assertEqual({b'key': b'11'}, repository.get_data())
