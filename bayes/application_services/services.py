@@ -45,7 +45,7 @@ class IncrementalLearner:
         self.model = BinomialModel(prior=prior, w=w, n=n)
         self.model.update()
 
-        print(self.model)
+        print(self.model, flush=True)
 
         self._save_current_knowledge()
         self._draw()

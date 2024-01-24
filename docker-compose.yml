@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  bayes:
+  bayes-subscriber:
     networks:
       - default
     container_name: event-driven-python-bayes
@@ -18,7 +18,7 @@ services:
       - redis
 # We don't explicitly define the 'entrypoint' because this breaks PyCharm test integration.
 # In prod we should define the entrypoint to limit interaction possibilities of the container.
-    command: ["./entrypoint.sh", "local"]
+    command: ["./entrypoint.sh", "bayes"]
 
   jupyter:
     container_name: event-driven-python-jupyter

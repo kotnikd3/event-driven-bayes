@@ -8,7 +8,7 @@ if [ -z "$PORT" ]; then
     export PORT=8888
 fi
 
-if [ "$1" = "local" ]; then
+if [ "$1" = "bayes" ]; then
     mkdir -p graphs
     python bayes/main.py
 elif [ "$1" = "jupyter" ]; then
