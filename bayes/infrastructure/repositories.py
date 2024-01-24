@@ -15,3 +15,6 @@ class RedisRepository(MemoryRepository):
 
     def get_data(self):
         return self.engine.hgetall('data')
+
+    def pub_sub(self, **kwargs):
+        return self.engine.pubsub(**kwargs)
