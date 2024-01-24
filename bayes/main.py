@@ -1,6 +1,9 @@
+# TODO: remove redis
 import redis
 
+from bayes.application_services import messagebus
 from bayes.application_services.services import IncrementalLearner
+from bayes.domain import commands
 from bayes.infrastructure.connections import REDIS_CONN_STRING
 from bayes.infrastructure.repositories import RedisRepository
 from bayes.infrastructure.views import MatplotlibGraph
@@ -14,12 +17,12 @@ learner = IncrementalLearner(
     drawer=MatplotlibGraph,
 )
 
-learner.update('w')
-learner.update('l')
-learner.update('w')
-learner.update('w')
-learner.update('w')
-learner.update('l')
-learner.update('w')
-learner.update('l')
-learner.update('w')
+messagebus.handle(commands.UpdateModel('w'), learner)
+messagebus.handle(commands.UpdateModel('l'), learner)
+messagebus.handle(commands.UpdateModel('w'), learner)
+messagebus.handle(commands.UpdateModel('w'), learner)
+messagebus.handle(commands.UpdateModel('w'), learner)
+messagebus.handle(commands.UpdateModel('l'), learner)
+messagebus.handle(commands.UpdateModel('w'), learner)
+messagebus.handle(commands.UpdateModel('l'), learner)
+messagebus.handle(commands.UpdateModel('w'), learner)

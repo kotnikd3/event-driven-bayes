@@ -1,12 +1,15 @@
 from unittest import TestCase
 
 from bayes.application_services.services import IncrementalLearner
-from tests.conftest import FakeMemoryRepository
+from tests.conftest import FakeGraph, FakeMemoryRepository
 
 
 class TestIncrementalLearner(TestCase):
     def setUp(self):
-        self.learner = IncrementalLearner(FakeMemoryRepository())
+        self.learner = IncrementalLearner(
+            FakeMemoryRepository(),
+            FakeGraph,
+        )
 
     def test_update(self):
         self.learner.update('w')
