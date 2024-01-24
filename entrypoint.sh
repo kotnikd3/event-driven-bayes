@@ -10,6 +10,7 @@ fi
 
 if [ "$1" = "bayes" ]; then
     mkdir -p graphs
+    rm -rf graphs/*
     python bayes/main.py
 elif [ "$1" = "jupyter" ]; then
     mkdir -p notebooks
