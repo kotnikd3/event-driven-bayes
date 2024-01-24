@@ -1,4 +1,4 @@
-# TODO: remove redis
+# TODO move redis
 import redis
 from bayes.application_services import messagebus
 from bayes.application_services.services import IncrementalLearner
@@ -17,6 +17,7 @@ learner = IncrementalLearner(
     drawer=MatplotlibGraph,
 )
 
+# TODO move to handlers?
 def handle(event):
     print(f'Handling: {event}', flush=True)
 
@@ -26,4 +27,5 @@ def handle(event):
     messagebus.handle(command, learner=learner)
 
 redis_subscriber = RedisSubscriber(repository=repository)
+# TODO move channel to the .env
 redis_subscriber.subscribe('update_model', handle)
