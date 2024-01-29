@@ -1,15 +1,17 @@
+import redis
+
 from api.application_services.publishers import Publisher
 from api.domain import commands
-from api.infrastructure.repositories import RedisRepository
+from api.infrastructure.connections import REDIS_CHANNEL
 
 
 class RedisPublisher(Publisher):
-    def __init__(self, repository: RedisRepository):
-        self.repository = repository
+    def __init__(self, conn_string: str):
+        self.engine = redis.from_url(conn_string)
 
-    def publish(self, channel: str, command: commands.UpdateModel):
+    def publish(self, command: commands.UpdateModel):
         print(
-            f'Publishing message {str(command)} on channel "{channel}".',
+            f'Publishing message {str(command)} on channel "{REDIS_CHANNEL}".',
             flush=True,
         )
-        self.repository.pub_sub().publish(channel, command.trial)
+        self.engine.publish(REDIS_CHANNEL, command.trial)

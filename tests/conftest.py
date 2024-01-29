@@ -15,8 +15,8 @@ class FakePublisher(Publisher):
     def __init__(self):
         self.repository = defaultdict(list)
 
-    def publish(self, channel: str, command: commands.UpdateModel):
-        self.repository[channel].append(command.trial)
+    def publish(self, command: commands.UpdateModel):
+        self.repository['fake_channel'].append(command.trial)
 
 
 @pytest.fixture(scope='session')

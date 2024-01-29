@@ -6,8 +6,8 @@ from bayes.domain import commands
 
 
 class RedisSubscriber:
-    def __init__(self, engine: redis.Redis):
-        self.engine = engine
+    def __init__(self, conn_string: str):
+        self.engine = redis.from_url(conn_string)
 
     def subscribe(self, channel: str, learner: IncrementalLearner):
         pubsub = self.engine.pubsub(ignore_subscribe_messages=True)

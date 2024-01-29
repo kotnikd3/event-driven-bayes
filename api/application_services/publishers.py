@@ -5,5 +5,5 @@ from api.domain import commands
 
 class Publisher(ABC):
     @abstractmethod
-    def publish(self, channel: str, command: commands.Command):
+    def publish(self, command: commands.Command):
         raise NotImplementedError
