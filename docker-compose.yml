@@ -30,6 +30,8 @@ services:
     env_file:
       - .env
       # - local.env
+    ports:
+      - "8000:${PORT:-8000}"
     volumes:
       - .:/event-driven-python
     depends_on:

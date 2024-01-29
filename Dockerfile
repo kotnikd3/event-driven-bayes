@@ -9,8 +9,10 @@ RUN set -ex; \
     # Install packages
     && pip install --no-cache-dir -r requirements/base.txt
 
-# Expose the Jupyter port
+# Expose port for Jupyter
 EXPOSE 8888
+# Expose port for Flask
+EXPOSE 8000
 
 # Development image to use with docker compose
 FROM base AS local
