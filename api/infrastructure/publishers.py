@@ -12,4 +12,4 @@ class RedisPublisher(Publisher):
             f'Publishing message {str(command)} on channel "{channel}".',
             flush=True,
         )
-        self.repository.engine.publish(channel, command.trial)
+        self.repository.pub_sub().publish(channel, command.trial)
