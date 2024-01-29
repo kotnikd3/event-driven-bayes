@@ -1,16 +1,27 @@
-from typing import Callable
+import redis
 
-from bayes.infrastructure.repositories import RedisRepository
+from bayes.application_services import messagebus
+from bayes.application_services.services import IncrementalLearner
+from bayes.domain import commands
 
 
 class RedisSubscriber:
-    def __init__(self, repository: RedisRepository):
-        self.repository = repository
+    def __init__(self, engine: redis.Redis):
+        self.engine = engine
 
-    def subscribe(self, channel: str, handler: Callable):
-        pubsub = self.repository.pub_sub(ignore_subscribe_messages=True)
+    def subscribe(self, channel: str, learner: IncrementalLearner):
+        pubsub = self.engine.pubsub(ignore_subscribe_messages=True)
         pubsub.subscribe(channel)
 
         print(f'Listening for messages on channel "{channel}".', flush=True)
-        for event in pubsub.listen():
-            handler(event)
+        for message in pubsub.listen():
+            self._handle_message(message, learner)
+
+    @staticmethod
+    def _handle_message(message, learner: IncrementalLearner):
+        print(f'Handling: {message}', flush=True)
+
+        trial = message['data'].decode('utf-8')
+
+        command = commands.UpdateModel(trial)
+        messagebus.handle(command, learner=learner)
