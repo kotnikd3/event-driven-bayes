@@ -1,17 +1,18 @@
 from unittest import TestCase
 
+import pytest
+
 from api.infrastructure.controllers import FlaskController
-from tests.conftest import FakePublisher
 
 
 class TestFlaskController(TestCase):
-    @classmethod
-    def setUpClass(cls) -> None:
-        publisher = FakePublisher()
-        cls.controller = FlaskController(publisher=publisher)
+    @pytest.fixture(autouse=True)
+    def prepare_fixture(self, publisher):
+        self.publisher = publisher
 
     def setUp(self) -> None:
-        self.client = self.controller.app.test_client(self)
+        controller = FlaskController(publisher=self.publisher)
+        self.client = controller.app.test_client(self)
 
     def test_model_updated(self):
         with self.client:

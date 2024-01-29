@@ -19,6 +19,11 @@ class FakePublisher(Publisher):
         self.repository[channel].append(command.trial)
 
 
+@pytest.fixture(scope='session')
+def publisher():
+    yield FakePublisher()
+
+
 class FakeMemoryRepository(MemoryRepository):
     def __init__(self):
         self.engine = {}
