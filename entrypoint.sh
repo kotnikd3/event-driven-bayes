@@ -16,7 +16,7 @@ elif [ "$1" = "api" ]; then
     flask run --host=0.0.0.0 -p $PORT
 elif [ "$1" = "jupyter" ]; then
     mkdir -p notebooks
-    jupyter lab --ip 0.0.0.0 --port $PORT --no-browser --allow-root --NotebookApp.token=''
+    jupyter lab --ip 0.0.0.0 --port 8888 --no-browser --allow-root --NotebookApp.token=''
 elif [ "$1" = "test" ]; then
     # Clean the code
     if [ "$2" = "local" ]; then

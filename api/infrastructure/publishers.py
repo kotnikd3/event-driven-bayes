@@ -1,7 +1,5 @@
-import json
-from dataclasses import asdict
-from api.domain import commands
 from api.application_services.publishers import Publisher
+from api.domain import commands
 from api.infrastructure.repositories import RedisRepository
 
 

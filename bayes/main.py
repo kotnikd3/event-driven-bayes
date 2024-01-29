@@ -1,5 +1,6 @@
 # TODO move redis
 import redis
+
 from bayes.application_services import messagebus
 from bayes.application_services.services import IncrementalLearner
 from bayes.domain import commands
@@ -17,6 +18,7 @@ learner = IncrementalLearner(
     drawer=MatplotlibGraph,
 )
 
+
 # TODO move to handlers?
 def handle(event):
     print(f'Handling: {event}', flush=True)
@@ -25,6 +27,7 @@ def handle(event):
 
     command = commands.UpdateModel(trial)
     messagebus.handle(command, learner=learner)
+
 
 redis_subscriber = RedisSubscriber(repository=repository)
 # TODO move channel to the .env

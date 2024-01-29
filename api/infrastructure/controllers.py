@@ -1,8 +1,8 @@
 from flask import Flask
 
+from api.application_services import messagebus
 from api.application_services.publishers import Publisher
 from api.domain import commands
-from api.application_services import messagebus
 
 
 class FlaskController:
@@ -22,5 +22,3 @@ class FlaskController:
                 messagebus.handle(command, self.publisher)
                 return 'Model updated', 201
             return 'Not found', 404
-
-

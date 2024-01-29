@@ -1,6 +1,6 @@
+from api.application_services import handlers
 from api.application_services.publishers import Publisher
 from api.domain import commands
-from api.application_services import handlers
 
 
 def handle(command: commands.Command, publisher: Publisher):

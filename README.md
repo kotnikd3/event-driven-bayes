@@ -8,6 +8,10 @@ docker-compose up bayes-subscriber
 ```
 
 ```shell
+docker-compose up api-publisher
+```
+
+```shell
 docker-compose up jupyter
 ```
 
