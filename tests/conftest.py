@@ -1,10 +1,22 @@
+from collections import defaultdict
+
 import pytest
 import redis
 
+from api.application_services.publishers import Publisher
+from api.domain import commands
 from bayes.application_services.repositories import MemoryRepository
 from bayes.application_services.services import AbstractGraph
 from bayes.domain.models import StatisticalModel
 from bayes.infrastructure.connections import REDIS_CONN_STRING
+
+
+class FakePublisher(Publisher):
+    def __init__(self):
+        self.repository = defaultdict(list)
+
+    def publish(self, channel: str, command: commands.UpdateModel):
+        self.repository[channel].append(command.trial)
 
 
 class FakeMemoryRepository(MemoryRepository):

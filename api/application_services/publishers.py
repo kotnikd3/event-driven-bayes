@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
-from typing import Callable
+
+from api.domain import commands
 
 
 class Publisher(ABC):
     @abstractmethod
-    def publish(self, channel: str, handler: Callable):
+    def publish(self, channel: str, command: commands.Command):
         raise NotImplementedError

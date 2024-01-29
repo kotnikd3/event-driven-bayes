@@ -13,3 +13,6 @@ class TestRedisRepository(TestCase):
     def test_pub_sub(self):
         repository = RedisRepository(self.engine)
         repository.flush()
+
+        pub_sub = repository.pub_sub()
+        pub_sub.publish('test', 'testing_message')
