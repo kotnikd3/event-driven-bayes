@@ -5,7 +5,7 @@ from bayes.application_services.repositories import MemoryRepository
 
 class RedisRepository(MemoryRepository):
     def __init__(self, conn_string: str):
-        self.engine = redis.from_url(conn_string)
+        self.engine = redis.from_url(conn_string, decode_responses=True)
 
     def flush(self):
         self.engine.flushdb()

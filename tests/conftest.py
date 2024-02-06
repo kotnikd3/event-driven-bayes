@@ -32,11 +32,11 @@ class FakeMemoryRepository(MemoryRepository):
         self.__init__()
 
     def save_data(self, data: dict) -> None:
-        self.engine[b'data'] = data
+        self.engine['data'] = data
 
     def get_data(self):
         if 'data' in self.engine:
-            return self.engine[b'data']
+            return self.engine['data']
         return None
 
 

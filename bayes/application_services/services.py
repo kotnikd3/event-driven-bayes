@@ -53,8 +53,8 @@ class IncrementalLearner:
     def _get_previous_knowledge(self) -> tuple:
         # Get data from Redis
         if data := self.repository.get_data():
-            deserialized_posterior = np.array(json.loads(data[b'posterior']))
-            return deserialized_posterior, int(data[b'w']), int(data[b'n'])
+            deserialized_posterior = np.array(json.loads(data['posterior']))
+            return deserialized_posterior, int(data['w']), int(data['n'])
 
         return (
             self.model.prior,
