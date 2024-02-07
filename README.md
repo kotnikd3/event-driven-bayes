@@ -3,7 +3,7 @@
 Event driven microservice architecture build in Python.
 
 First microservice (`api`) implements Flask API that publish events on Redis message broker.  
-Second microservice (`bayes`), a subscriber, uses events to incrementally (time and space complexity are O(1)) update  
+Second microservice (`bayes`), a subscriber, uses events to incrementally (time and space complexity are O(1)) update 
 (new prior = old posterior distribution) Bayesian Binomial model using grid approximation and visualise prior and posterior distributions of data.
 
 ![class model_update_one](docs/model_update_one.png)
