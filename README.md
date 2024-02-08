@@ -24,6 +24,9 @@ The following sequence diagram shows communication between entities.
 
 ![deployment diagram](docs/sequence_diagram.png)
 
+The following class diagram shows the most important relationships between classes.
+
+![class diagram](docs/class_diagram.png)
 
 ## Software design
 
