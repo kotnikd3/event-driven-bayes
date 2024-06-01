@@ -44,10 +44,10 @@ from **domain driven design** approach.
 # Development setup
 
 ## Local
-Command `docker-compose build` builds Docker image.  
-Command `docker-compose up bayes-subscriber` starts the `bayes` microservice.  
-Command `docker-compose up api-publisher` starts the `api` microservice.  
-Command `docker-compose up jupyter` start Jupyter Notebook on `http://localhost:8888/lab`.
+Command `docker compose build` builds Docker image.  
+Command `docker compose up bayes-subscriber` starts the `bayes` microservice.  
+Command `docker compose up api-publisher` starts the `api` microservice.  
+Command `docker compose up jupyter` start Jupyter Notebook on `http://localhost:8888/lab`.
 
 Visualisations are generated in `/graphs` folder.
 
@@ -56,7 +56,7 @@ Visualisations are generated in `/graphs` folder.
 To run **all** checks and tests, execute:
 
 ```shell
-docker-compose run --rm --entrypoint ./entrypoint.sh bayes-subscriber test local
+docker compose run --rm --entrypoint ./entrypoint.sh bayes-subscriber test local
 ```
 
 
