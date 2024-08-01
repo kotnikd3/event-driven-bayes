@@ -1,8 +1,8 @@
 FROM python:3.11-slim-buster AS base
 
-WORKDIR /event-driven-python
+WORKDIR /event-driven-bayes
 
-COPY requirements /event-driven-python/requirements
+COPY requirements /event-driven-bayes/requirements
 
 RUN set -ex; \
     pip install --upgrade pip \

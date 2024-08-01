@@ -3,7 +3,7 @@ services:
   bayes-subscriber:
     networks:
       - default
-    container_name: event-driven-python-bayes
+    container_name: event-driven-bayes-bayes
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,7 +13,7 @@ services:
       - .env
       # - local.env
     volumes:
-      - .:/event-driven-python
+      - .:/event-driven-bayes
     depends_on:
       - redis
     command: ["./entrypoint.sh", "bayes"]
@@ -21,7 +21,7 @@ services:
   api-publisher:
     networks:
       - default
-    container_name: event-driven-python-api
+    container_name: event-driven-bayes-api
     build:
       context: .
       dockerfile: Dockerfile
@@ -33,13 +33,13 @@ services:
     ports:
       - "8000:${PORT:-8000}"
     volumes:
-      - .:/event-driven-python
+      - .:/event-driven-bayes
     depends_on:
       - redis
     command: ["./entrypoint.sh", "api"]
 
   jupyter:
-    container_name: event-driven-python-jupyter
+    container_name: event-driven-bayes-jupyter
     build:
       context: .
       dockerfile: Dockerfile
@@ -47,13 +47,13 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - .:/event-driven-python
+      - .:/event-driven-bayes
     command: ["./entrypoint.sh", "jupyter"]
 
   redis:
     networks:
       - default
-    container_name: event-driven-python-redis
+    container_name: event-driven-bayes-redis
     image: redis:6-alpine
     ports:
       - "6381:6379"

@@ -1,4 +1,4 @@
-# event-driven-python
+# event-driven-bayes
 ## About the project
 Event driven microservice architecture build in Python.
 
@@ -77,7 +77,7 @@ Messages can also be published manually with the following commands:
 
 ```shell
 # Use redis-cli inside Docker container
-docker exec -it event-driven-python-redis redis-cli
+docker exec -it event-driven-bayes-redis redis-cli
 # Set Redis so that does not store data on drive
 config set stop-writes-on-bgsave-error no
 # Publish message `w` on channel `update_model`
@@ -110,7 +110,7 @@ using the template **Flask server**
 1. Add a new Run/Debug configuration in the menu **Run / Edit Configurations...**
 using the template **Flask server**
 2. Specify `bayes/main.py` as **Script**
-3. Set **Working directory** to `event-driven-python` folder.
+3. Set **Working directory** to `event-driven-bayes` folder.
 4. Select the Python interpreter created in **configure the project interpreter**
 
 ## Configure Pytest tests
