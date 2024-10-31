@@ -6,8 +6,8 @@ First microservice (`api`) implements Flask API that publish events on Redis mes
 Second microservice (`bayes`), a subscriber, uses events to incrementally (time and space complexity are O(1)) update 
 (new prior = old posterior distribution) Bayesian Binomial model using grid approximation and visualise prior and posterior distributions of data.
 
-![class model_update_one](docs/model_update_one.png)
-![class model_update_two](docs/model_update_two.png)
+![model_update_one](docs/model_update_one.png)
+![model_update_two](docs/model_update_two.png)
 
 This project was inspired by the following books:
 - Statistical Rethinking 2nd edition by Richard McElreath ([materials](https://xcelab.net/rm/statistical-rethinking/))
@@ -16,15 +16,15 @@ This project was inspired by the following books:
 
 
 ## Software architecture
-The following deployment diagram shows components.
+The following UML component diagram shows components.
 
-![deployment diagram](docs/deployment_diagram.png)
+![component_diagram](docs/component_diagram.png)
 
-The following sequence diagram shows communication between entities.
+The following UML sequence diagram shows communication between entities.
 
-![deployment diagram](docs/sequence_diagram.png)
+![sequence diagram](docs/sequence_diagram.png)
 
-The following class diagram shows the most important relationships between classes.
+The following UML class diagram shows the most important relationships between classes.
 
 ![class diagram](docs/class_diagram.png)
 

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-08T09:46:28.428Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="-po0vbCitxNefaGjGbK2" version="23.1.1" type="device" pages="3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.3" pages="3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Class diagram">
     <mxGraphModel dx="1536" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -127,44 +127,77 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="CHLFLKvDqn4ZP3a6oMDH" name="Deployment diagram">
-    <mxGraphModel dx="2074" dy="1121" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram id="CHLFLKvDqn4ZP3a6oMDH" name="Component diagram">
+    <mxGraphModel dx="734" dy="447" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="tsjrXeTJMkpEpouFfiP--17" value="REST API" style="text;align=center;fontStyle=0;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=15;" parent="1" vertex="1">
-          <mxGeometry x="85" y="825" width="100" height="46" as="geometry" />
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-12" value="REST API" style="text;align=center;fontStyle=0;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="20" y="70" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZrjcsuKuZAV5sQ9e0-kJ-6" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;entryX=0.5;entryY=0.5;endSize=6;strokeWidth=1;sketch=0;dashed=1;" parent="1" source="i0YoTwmgu5wH7frchdvh-2" target="ZrjcsuKuZAV5sQ9e0-kJ-7" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-10" y="568.6206896551724" as="sourcePoint" />
-          </mxGeometry>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-23" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aZBnsWXb_z5cD9_hnTjs-15" target="aZBnsWXb_z5cD9_hnTjs-21">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ZrjcsuKuZAV5sQ9e0-kJ-7" value="" style="ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;resizable=0;points=[];outlineConnect=0;sketch=0;" parent="1" vertex="1">
-          <mxGeometry x="130" y="815" width="10" height="10" as="geometry" />
-        </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-1" value="message broker&lt;br style=&quot;font-size: 14px;&quot;&gt;&amp;lt;Redis&amp;gt;" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=14;image=img/lib/mscae/Cache_Redis_Product.svg;" parent="1" vertex="1">
-          <mxGeometry x="310" y="990" width="50" height="42" as="geometry" />
-        </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-3" value="Publish" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;" parent="1" source="i0YoTwmgu5wH7frchdvh-2" target="i0YoTwmgu5wH7frchdvh-1" edge="1">
-          <mxGeometry x="0.157" y="10" relative="1" as="geometry">
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-26" value="Publish" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aZBnsWXb_z5cD9_hnTjs-23">
+          <mxGeometry x="-0.2714" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-2" value="api&lt;br style=&quot;font-size: 14px;&quot;&gt;&amp;lt;Python Flask&amp;gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/Python_logo-128.png;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="200" y="790" width="60" height="60" as="geometry" />
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-15" value="«Python Flask»&lt;br&gt;&lt;b&gt;api-publisher&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="130" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-5" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Subscribe&lt;/font&gt;" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="i0YoTwmgu5wH7frchdvh-4" target="i0YoTwmgu5wH7frchdvh-1" edge="1">
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-16" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="aZBnsWXb_z5cD9_hnTjs-15">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-24" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aZBnsWXb_z5cD9_hnTjs-17" target="aZBnsWXb_z5cD9_hnTjs-21">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-8" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Read/Write&lt;/font&gt;" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="i0YoTwmgu5wH7frchdvh-4" target="i0YoTwmgu5wH7frchdvh-7" edge="1">
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-27" value="Subscribe" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aZBnsWXb_z5cD9_hnTjs-24">
+          <mxGeometry x="-0.0369" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aZBnsWXb_z5cD9_hnTjs-17" target="aZBnsWXb_z5cD9_hnTjs-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-4" value="bayes&lt;br style=&quot;font-size: 15px;&quot;&gt;&amp;lt;Python&amp;gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/Python_logo-128.png;fontSize=15;" parent="1" vertex="1">
-          <mxGeometry x="400" y="790" width="60" height="60" as="geometry" />
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-28" value="Read, write" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aZBnsWXb_z5cD9_hnTjs-25">
+          <mxGeometry x="-0.3641" y="3" relative="1" as="geometry">
+            <mxPoint x="10" y="6" as="offset" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="i0YoTwmgu5wH7frchdvh-7" value="in-memory database&lt;br&gt;&amp;lt;Redis&amp;gt;" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=14;image=img/lib/mscae/Cache_Redis_Product.svg;" parent="1" vertex="1">
-          <mxGeometry x="490" y="990" width="50" height="42" as="geometry" />
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-17" value="«Python»&lt;br&gt;&lt;b&gt;bayes-subscriber&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="280" y="30" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-18" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="aZBnsWXb_z5cD9_hnTjs-17">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-19" value="«Redis»&lt;br&gt;&lt;b&gt;In-memory DB&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="380" y="150" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-20" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="aZBnsWXb_z5cD9_hnTjs-19">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-21" value="«Redis»&lt;br&gt;&lt;b&gt;Message broker&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="150" y="150" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-22" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="aZBnsWXb_z5cD9_hnTjs-21">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-29" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;entryX=0.5;entryY=0.5;endSize=6;strokeWidth=1;sketch=0;dashed=1;" edge="1" parent="1" target="aZBnsWXb_z5cD9_hnTjs-30" source="aZBnsWXb_z5cD9_hnTjs-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="65.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aZBnsWXb_z5cD9_hnTjs-30" value="" style="ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;resizable=0;points=[];outlineConnect=0;sketch=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="10" height="10" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
