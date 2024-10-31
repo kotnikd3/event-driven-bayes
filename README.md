@@ -6,7 +6,10 @@ First microservice (`api`) implements Flask API that publish events on Redis mes
 Second microservice (`bayes`), a subscriber, uses events to incrementally (time and space complexity are O(1)) update 
 (new prior = old posterior distribution) Bayesian Binomial model using grid approximation and visualise prior and posterior distributions of data.
 
+w=2, n=3
 ![model_update_one](docs/model_update_one.png)
+
+w=3, n=n
 ![model_update_two](docs/model_update_two.png)
 
 This project was inspired by the following books:
@@ -16,11 +19,11 @@ This project was inspired by the following books:
 
 
 ## Software architecture
-The following UML component diagram shows components.
+The following UML component diagram shows main components.
 
 ![component_diagram](docs/component_diagram.png)
 
-The following UML sequence diagram shows communication between entities.
+The following UML sequence diagram shows communication between components.
 
 ![sequence diagram](docs/sequence_diagram.png)
 
